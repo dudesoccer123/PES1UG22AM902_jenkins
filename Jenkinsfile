@@ -10,7 +10,8 @@ pipeline {
         
         stage('Test') {
             steps {
-                sh './PES1UG22AM902-1'
+                // Intentional error: Running a non-existing file
+                sh './PES1UG22AM902-1_invalid'
             }
         }
         
@@ -23,7 +24,7 @@ pipeline {
     
     post {
         failure {
-            echo 'Pipeline failed'
+            echo 'Pipeline failed. Check logs for errors.'
         }
     }
 }
